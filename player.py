@@ -3,7 +3,6 @@ import circleshape
 
 from constants import PLAYER_RADIUS, PLAYER_TURN_SPEED, PLAYER_SPEED
 
-#Base class for player character
 class Player(circleshape.CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)

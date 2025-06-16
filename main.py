@@ -5,6 +5,8 @@ import pygame
 
 from constants import SCREEN_HEIGHT, SCREEN_WIDTH
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 def main():
     # must always initialize pygame
@@ -22,12 +24,16 @@ def main():
     # groups to make the game easy to track, keep game loop logic simple
     updateable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
     
     # update all game class containers to have appropriate groups
     Player.containers = (updateable, drawable)
+    Asteroid.containers = (asteroids, updateable, drawable)
+    AsteroidField.containers = (updateable)
 
-    # game objects
+    # game objects, even if never directly accessed you must create the game objects
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    asteroid_field = AsteroidField()
 
     # game loop
     while True:
