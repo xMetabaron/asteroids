@@ -51,6 +51,10 @@ def main():
         for draw in drawable:
             draw.draw(screen)
         updateable.update(dt)
+        for asteroid in asteroids:
+            if player.check_collision(asteroid):
+                print("Game over!")
+                return
         # update the screen, should always be last
         pygame.display.flip()
 
